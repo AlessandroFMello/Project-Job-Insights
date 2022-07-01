@@ -16,7 +16,17 @@ def get_unique_job_types(path):
     list
         List of unique job types
     """
-    return []
+
+    allJobs = read(path)
+
+    unique_jobs = []
+
+    for job in allJobs:
+        if job["job_type"] not in unique_jobs:
+            if job["job_type"] != '':
+                unique_jobs.append(job["job_type"])
+
+    return unique_jobs
 
 
 def filter_by_job_type(jobs, job_type):
